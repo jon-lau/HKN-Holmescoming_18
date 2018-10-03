@@ -21,7 +21,7 @@ int B_Ready = 0;
 int R_Ready = 0;
 void setup() {
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
-  //  Serial.begin(9600);
+    Serial.begin(9600);
 }
 void loop() {
   //  wait to start the game
@@ -102,7 +102,7 @@ void loop() {
       break;
     //if yellow
     case 2:
-      for (int i = 0; i < NUM_LEDS; i++) leds[i] = CRGB:: Yellow;
+      for (int i = 0; i < NUM_LEDS; i++) leds[i] = CHSV(21, 255, 255);
       break;
   }
 
@@ -111,7 +111,7 @@ void loop() {
     if (color == 0) {
       if (digitalRead(RED1) == LOW) {
         One_Score++;
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: Blue;
         }
         FastLED.show();
@@ -119,7 +119,7 @@ void loop() {
         break;
       }
       else if (digitalRead(RED2) == LOW) {
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: White;
         }
         FastLED.show();
@@ -131,7 +131,7 @@ void loop() {
     else if (color == 1) {
       if (digitalRead(GREEN1) == LOW) {
         One_Score++;
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: Blue;
         }
         FastLED.show();
@@ -140,7 +140,7 @@ void loop() {
       }
       else if (digitalRead(GREEN2) == LOW) {
         Two_Score++;
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: White;
         }
         FastLED.show();
@@ -151,7 +151,7 @@ void loop() {
     else if (color == 2) {
       if (digitalRead(YELLOW1) == LOW) {
         One_Score++;
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: Blue;
         }
         FastLED.show();
@@ -160,7 +160,7 @@ void loop() {
       }
       else if (digitalRead(YELLOW2) == LOW) {
         Two_Score++;
-        for (int i = 1; i < NUM_LEDS - 1; i++) {
+        for (int i = 0; i < NUM_LEDS - 1; i++) {
           leds[i] = CRGB:: White;
         }
         FastLED.show();
